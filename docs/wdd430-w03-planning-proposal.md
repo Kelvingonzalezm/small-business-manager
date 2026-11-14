@@ -18,19 +18,21 @@ The following four entities are a draft interpretation of the existing specifica
 
 | Entity | Candidate key fields supported by current scope | Draft relationship |
 | --- | --- | --- |
-| **User** | account identifier, email, password hash | A user owns or is authorized to access business records. The specification requires authenticated, user-scoped access; the precise tenancy model is undecided. |
-| **Product** | product identifier, name, description, price, quantity, optional supplier reference | A product may refer to a Supplier. Product price and quantity are managed as part of product/inventory workflows. |
-| **Supplier** | supplier identifier, name, basic contact details | A supplier may be associated with multiple Products; whether the relationship is one-to-many and whether suppliers are user-scoped need confirmation. |
-| **Inventory Record** | inventory record identifier, product reference, quantity, stock status, observation time | A Product may have inventory records over time. This follows the specification's description of quantity and stock status at a point in time; whether history is required or only current stock is stored remains undecided. |
+| **User** | `userId` (candidate primary key), email, password hash | A user owns or is authorized to access business records. The specification requires authenticated, user-scoped access; the precise tenancy model is undecided. |
+| **Product** | `productId` (candidate primary key), `userId` (candidate foreign key), optional `supplierId` (candidate foreign key), name, description, price, quantity | A product may refer to one Supplier; a Supplier may be referenced by many Products. Whether supplier assignment is optional and whether products are user-scoped need confirmation. |
+| **Supplier** | `supplierId` (candidate primary key), `userId` (candidate foreign key), name, basic contact details | A Supplier may be associated with multiple Products. Whether suppliers are user-scoped needs confirmation. |
+| **Inventory Record** | `inventoryRecordId` (candidate primary key), `productId` (candidate foreign key), quantity, stock status, observation time | A Product may have multiple Inventory Records over time. Whether history is required or only current stock is stored remains undecided. |
 
 **Relationship sketch (proposal):**
 
 ```text
-User 1 ── owns/accesses ── many Products
-User 1 ── owns/accesses ── many Suppliers
-Supplier 1 ── may supply ── many Products
-Product 1 ── has ── many Inventory Records
+User 1 ── owns/accesses ── many Products (Product.userId -> User.userId)
+User 1 ── owns/accesses ── many Suppliers (Supplier.userId -> User.userId)
+Supplier 1 ── may supply ── many Products (Product.supplierId -> Supplier.supplierId)
+Product 1 ── has ── many Inventory Records (InventoryRecord.productId -> Product.productId)
 ```
+
+All primary-key and foreign-key names above are candidates for the team's data model, not implemented database constraints. The final key generation, uniqueness rules, nullability, and foreign-key enforcement depend on the database and tenancy decisions the team approves.
 
 The user-to-business-record relationships express the specification's access-control requirement, not a confirmed schema. If the team chooses a single-business deployment, the user relationship may instead be represented through a Business entity; no Business entity is added here because it is not presently listed in the specification.
 
@@ -59,9 +61,9 @@ The team should agree on route names, shared form/table components, authorizatio
 No approved palette, typeface, spacing scale, shared UI library, or responsive breakpoints were found in the repository. A possible direction for team discussion is:
 
 - **Palette:** navy `#16324F` for navigation and primary actions, teal `#168C8C` for positive operational states, off-white `#F7F8FA` for page backgrounds, white surfaces, and slate `#344054` for body text. Status colors should also use labels/icons so meaning does not depend on color alone.
-- **Typography:** a readable sans-serif system stack for interface text; use a single consistent type scale and reserve heavier weights for headings and totals.
-- **Layout and spacing:** a consistent header and content container, clear page titles, a small spacing scale, and card/table layouts for dashboard metrics and product records.
-- **Responsive behavior:** stack navigation and summary cards on narrow screens, keep forms usable without horizontal scrolling, and allow wide data tables to scroll or adapt to compact cards.
+- **Typography:** reuse the scaffold's configured `Geist` sans-serif for interface text and `Geist Mono` for identifiers or technical values; keep headings, body text, and labels on a consistent type scale.
+- **Layout and spacing:** use a shared header and centered content container, clear page titles, and a proposed 4-pixel spacing base (4, 8, 12, 16, 24, and 32 pixels). Use cards for dashboard summaries and readable tables for product records.
+- **Responsive behavior:** use the existing Tailwind responsive system; stack navigation, forms, and summary cards on narrow screens, avoid horizontal form scrolling, and let wide tables scroll or change to compact cards at smaller viewports.
 - **Component library:** continue with the existing Next.js, TypeScript, and Tailwind CSS stack; decide as a team whether Tailwind utility components alone are sufficient or whether to adopt a shared component library.
 
 These are starting points only and should be revised to match team feedback and accessibility checks before becoming project standards.

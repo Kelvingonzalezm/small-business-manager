@@ -18,7 +18,7 @@ The repository describes a web application for small-business owners to manage p
 
 ## 3. Local Development Screenshot - PARTIAL
 
-The local application is responding at [http://localhost:3000](http://localhost:3000) with HTTP 200. The existing file [`docs/evidence/local-development.png`](evidence/local-development.png) is a genuine headless-browser capture of the page, but it does not show the browser address bar or the VS Code terminal. The desktop capture integration was unavailable during this verification, so I could not create the requested stronger screenshot.
+The local application is responding at [http://localhost:3000](http://localhost:3000) with HTTP 200. The existing [PNG screenshot](https://raw.githubusercontent.com/Kelvingonzalezm/small-business-manager/docs/wdd430-w03-planning-evidence/docs/evidence/local-development.png) is a genuine headless-browser capture of the page, but it does not show the browser address bar or the VS Code terminal. The desktop capture integration was unavailable during this verification, so I could not create the requested stronger screenshot.
 
 To capture the remaining evidence, keep the existing development server running, open `http://localhost:3000` in a browser, and use **Win + Shift + S** to capture the browser with the address bar visible, or capture VS Code with the project and the terminal's `npm run dev` ready output. Save the unedited PNG as `docs/evidence/local-development.png`.
 
@@ -39,15 +39,15 @@ The [Week 04 milestone](https://github.com/Kelvingonzalezm/small-business-manage
 
 ## 5. Data Model - PARTIAL
 
-The repository specification describes the project's account, product, supplier, inventory, and dashboard scope. My [planning proposal](wdd430-w03-planning-proposal.md) outlines four candidate entities - User, Product, Supplier, and Inventory Record - with possible ownership, supplier, product, and inventory relationships. It records that the exact fields and tenancy rules require team confirmation. The repository does not record an approved or implemented database technology, so this proposal does not claim one.
+The repository specification describes the project's account, product, supplier, inventory, and dashboard scope. My [planning proposal](wdd430-w03-planning-proposal.md) outlines four candidate entities - User, Product, Supplier, and Inventory Record - with candidate primary keys (`userId`, `productId`, `supplierId`, and `inventoryRecordId`) and foreign keys (`userId`, `supplierId`, and `productId`) connecting owners, products, suppliers, and inventory records. It describes one-to-many relationships while marking tenancy, nullability, and key enforcement for team confirmation. The repository does not record an approved or implemented database technology, so this proposal does not claim one.
 
 ## 6. Design Planning - PARTIAL
 
-I found no team-approved palette, typeface, spacing scale, component library, or responsive rules in the repository. The planning proposal suggests a navy, teal, off-white, and slate palette, readable sans-serif typography, a consistent navigation/content layout, and responsive forms, cards, and tables. These are individual proposals awaiting team approval, not established team decisions.
+I found no team-approved palette, typeface, spacing scale, component library, or responsive rules in the repository. The planning proposal offers a navy, teal, off-white, and slate palette; the scaffold's configured Geist/Geist Mono fonts; a 4-pixel spacing base; and responsive navigation, forms, cards, and tables. These are individual proposals awaiting team approval, not established team decisions.
 
 ## 7. W03 Team: Code Review Report - COMPLETE
 
-I previously reviewed Kelvin Gonzalez's Week 02 Sacrament Meeting Planner [Pull Request #1](https://github.com/Kelvingonzalezm/sacrament-meetings/pull/1#pullrequestreview-5899521998). This is the existing review evidence; I did not repeat or replace it during this W03 project work.
+I submitted a `COMMENTED` review as `kennethduron` on Kelvin Gonzalez's Week 02 Sacrament Meeting Planner [Pull Request #1](https://github.com/Kelvingonzalezm/sacrament-meetings/pull/1#pullrequestreview-5899521998). It contains an inline suggestion on `app/meetings/current/page.tsx` about matching the current Sunday exactly before falling back to `/meetings`. This is a real code comment, not an approval; I did not repeat or replace the review during this W03 project work.
 
 ## Verification evidence
 
