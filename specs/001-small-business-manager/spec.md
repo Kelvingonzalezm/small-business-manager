@@ -110,12 +110,38 @@ Business owners need a simple dashboard that summarizes the current state of pro
 - **FR-013**: System MUST validate required fields and reject incomplete or invalid data before saving business records.
 - **FR-014**: System MUST protect user data by requiring authenticated access to sensitive business information.
 
-### Key Entities *(include if feature involves data)*
 
-- **User**: Represents an account holder with access to the business data in the application.
-- **Product**: Represents a business item with identifying information, pricing, quantity, and an optional supplier association.
-- **Supplier**: Represents a business contact or source for products, including basic identifying and contact information.
-- **Inventory Record**: Represents the quantity and stock status of a product at a given point in time.
+### Key Entities
+
+- **User**: Represents a business owner who has an account and manages their own business data.
+  - `id`: Unique user identifier (UUID).
+  - `name`: User's full name.
+  - `email`: User's email address (required and unique).
+  - `password_hash`: Securely hashed password.
+  - `created_at`: Account creation date and time.
+
+- **Product**: Represents an item managed by a business owner.
+  - `id`: Unique product identifier (UUID).
+  - `user_id`: Identifier of the user who owns the product (required).
+  - `name`: Product name (required).
+  - `description`: Product description.
+  - `price`: Current selling price (required, non-negative).
+  - `quantity`: Current available stock (required, non-negative integer).
+  - `supplier_id`: Associated supplier identifier (optional).
+  - `created_at`: Product creation date and time.
+  - `updated_at`: Last product update date and time.
+
+- **Supplier**: Represents a supplier who provides products to a business.
+  - `id`: Unique supplier identifier (UUID).
+  - `user_id`: Identifier of the user who owns the supplier record (required).
+  - `name`: Supplier or company name (required).
+  - `email`: Supplier email address (optional).
+  - `phone`: Supplier phone number (optional).
+  - `created_at`: Supplier creation date and time.
+  - `updated_at`: Last supplier update date and time.
+
+- **Inventory Record**: For the initial version, the current stock quantity is stored directly in the Product entity. A separate inventory history table is not included.
+
 
 ## Success Criteria *(mandatory)*
 
