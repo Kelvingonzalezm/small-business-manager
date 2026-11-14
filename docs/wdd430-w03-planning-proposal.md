@@ -8,7 +8,7 @@ This document records a draft data model and design direction based on the curre
 - Project repository and team roster: [Small Business Manager](https://github.com/Kelvingonzalezm/small-business-manager)
 - Existing project specification: [`specs/001-small-business-manager/spec.md`](../specs/001-small-business-manager/spec.md)
 - Existing project constitution: [`.specify/memory/constitution.md`](../.specify/memory/constitution.md)
-- Existing work items: [Issues #5–#11](https://github.com/Kelvingonzalezm/small-business-manager/issues)
+- Existing work items: [Issues #5–#11 and #14](https://github.com/Kelvingonzalezm/small-business-manager/issues)
 
 The specification identifies account access, product management, inventory and pricing, supplier information, and a basic business dashboard. The constitution emphasizes data integrity, traceability, testable changes, simple architecture, and security. The repository currently contains only the initial Next.js starter page; the database technology and visual design system are not recorded as approved decisions.
 
@@ -70,8 +70,8 @@ These are starting points only and should be revised to match team feedback and 
 
 - `main` is a public Next.js App Router scaffold using TypeScript and Tailwind CSS. It has `dev`, `build`, and `lint` scripts, but no test or type-check script is defined in `package.json`.
 - The README lists Kelvin Gonzalez, Virginia Rocha Guzman, Kenneth Duron, and Danson Nganga. A README roster does not establish meeting attendance, team numbering, or assigned responsibilities.
-- Issues #5–#11 are seven open work items. Several overlap in product work (for example, #6 and #10/#11); the team should decide whether to keep them as parent/child tasks or consolidate them before creating more issues.
-- No repository milestones were returned by GitHub's public milestone endpoint. The repository's classic Projects endpoint returned 404; this does not prove that no GitHub Projects v2 board exists.
+- The public [Small Business Manager Projects v2 board](https://github.com/users/Kelvingonzalezm/projects/2) currently contains eight open repository Issues: #5–#11 and #14. It has Status and Priority fields. Issues #5, #6, #7, #10, and #11 are marked P1; #8 and #9 are P2. Product issues #6 and #10/#11 overlap in scope, so the team should clarify whether #10/#11 are child tasks or separate work before implementation.
+- The existing [Week 04 milestone](https://github.com/Kelvingonzalezm/small-business-manager/milestone/1) now contains six open Issues: #5, #6, #7, #10, #11, and #14. All five P1 issues are included. Issues #8 and #9 remain outside this milestone. The project board and milestone were verified through GitHub's API on November 13, 2026.
 - No task owners are proposed or assigned by this document.
 
 ## Questions for team confirmation

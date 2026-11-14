@@ -1,76 +1,68 @@
-# WDD 430 W03 Team Project — Canvas Submission Draft
+# WDD 430 W03 Team Project - Canvas Submission Draft
 
-**Evidence status: draft; not ready for submission until the listed team and board evidence is confirmed.**
-Repository reviewed on November 13, 2026: [Kelvingonzalezm/small-business-manager](https://github.com/Kelvingonzalezm/small-business-manager).
+**Status: partial.** The repository, public Project Board, milestone, data-model/design proposal, and prior code review are verified. A screenshot showing the local browser or VS Code terminal and confirmation of synchronous meeting details are still needed.
 
-## 1. Team Meeting Summary — PARTIAL
+## 1. Team Meeting Summary - PARTIAL
 
-My team selected Small Business Manager in a Microsoft Teams discussion, according to the team information available to me. I could not access the Teams meeting records in this review, so I cannot verify a synchronous meeting, its attendees, or a meeting leader. The repository and its issues record the project's scope, but they do not establish that individual responsibilities were agreed during a meeting. I will add those details only after the team confirms them.
+The team selected **Small Business Manager**, according to the team's prior Microsoft Teams coordination. The repository README currently lists Kelvin Gonzalez, Virginia Rocha Guzman, Kenneth Duron, and Danson Nganga. I could not retrieve the Teams meeting record in this review, so I cannot verify whether a synchronous meeting occurred, who attended it, who led it, or which responsibilities the team formally assigned. I will not present those details as confirmed.
 
-The project is described in the README as a web application to help small business owners manage products, inventory, prices, and supplier information. The repository specification also includes account access and a basic business dashboard.
+The repository describes a web application for small-business owners to manage products, inventory, prices, and supplier information, with account access and a basic business dashboard in the project specification. The current repository evidence does not establish a specific project-selection rationale beyond the stated scope.
 
-## 2. GitHub Repository — COMPLETE
+## 2. GitHub Repository - COMPLETE
 
-Public team repository: [Small Business Manager](https://github.com/Kelvingonzalezm/small-business-manager)
+- Public team repository: [Kelvingonzalezm/small-business-manager](https://github.com/Kelvingonzalezm/small-business-manager)
+- Current README roster: Kelvin Gonzalez, Virginia Rocha Guzman, Kenneth Duron, and Danson Nganga.
+- My account `kennethduron` has write permission.
+- `main` is protected. I did not change `main`.
+- My documentation PR is [PR #13](https://github.com/Kelvingonzalezm/small-business-manager/pull/13), open as a **Draft** from `docs/wdd430-w03-planning-evidence` to `main`. It has not been merged.
 
-The README lists four members: Kelvin Gonzalez, Virginia Rocha Guzman, Kenneth Duron, and Danson Nganga. This verifies the current repository roster, but not team numbering, meeting attendance, or assigned responsibilities. `main` is protected. A Git push dry-run to a temporary, non-created branch was accepted by GitHub; no branch or repository content was changed by that permission check.
+## 3. Local Development Screenshot - PARTIAL
 
-## 3. Local Development Screenshot — PARTIAL
+The local application is responding at [http://localhost:3000](http://localhost:3000) with HTTP 200. The existing file [`docs/evidence/local-development.png`](evidence/local-development.png) is a genuine headless-browser capture of the page, but it does not show the browser address bar or the VS Code terminal. The desktop capture integration was unavailable during this verification, so I could not create the requested stronger screenshot.
 
-I cloned the team repository into a separate local folder, installed its locked npm dependencies, started `npm run dev`, and verified that `http://localhost:3000/` returned HTTP 200. I captured the actual page in headless Chrome; the image shows the current Next.js starter page. It does not show the address bar or VS Code terminal, so a screenshot with visible local URL/terminal context would be stronger evidence.
+To capture the remaining evidence, keep the existing development server running, open `http://localhost:3000` in a browser, and use **Win + Shift + S** to capture the browser with the address bar visible, or capture VS Code with the project and the terminal's `npm run dev` ready output. Save the unedited PNG as `docs/evidence/local-development.png`.
 
-![Actual local page captured from http://localhost:3000](evidence/local-development.png)
+## 4. GitHub Project Board - COMPLETE
 
-Optional stronger capture: keep the development server running in the project terminal, open `http://localhost:3000` in a browser, and press **Win + Shift + S**. Capture the browser with the localhost address visible, or capture VS Code with the project and terminal showing the `npm run dev` ready message. Save the original PNG without editing it.
+The public GitHub Projects v2 board is [Small Business Manager](https://github.com/users/Kelvingonzalezm/projects/2). GitHub's API verified that it is public and contains all eight open repository Issues:
 
-## 4. GitHub Project Board — PARTIAL
+- [#5 - Implement user registration and login](https://github.com/Kelvingonzalezm/small-business-manager/issues/5) - P1, In progress, Week 04.
+- [#6 - Implement product management](https://github.com/Kelvingonzalezm/small-business-manager/issues/6) - P1, Backlog, Week 04.
+- [#7 - Manage inventory and product prices](https://github.com/Kelvingonzalezm/small-business-manager/issues/7) - P1, Backlog, Week 04.
+- [#8 - Implement supplier management](https://github.com/Kelvingonzalezm/small-business-manager/issues/8) - P2, Backlog.
+- [#9 - Create business dashboard](https://github.com/Kelvingonzalezm/small-business-manager/issues/9) - P2, Backlog.
+- [#10 - Build product creation and listing](https://github.com/Kelvingonzalezm/small-business-manager/issues/10) - P1, Backlog, Week 04.
+- [#11 - Build product update and deletion](https://github.com/Kelvingonzalezm/small-business-manager/issues/11) - P1, Backlog, Week 04.
+- [#14 - Decide and document the database and data ownership model](https://github.com/Kelvingonzalezm/small-business-manager/issues/14) - Backlog, Week 04.
 
-No verified Project Board URL is available yet. The repository's classic Projects endpoint returned 404. GitHub CLI is authenticated as `kennethduron` with repository access, but lacks `read:project`, so I could not query Projects v2 or verify its visibility. The repository now has eight open, relevant issues after one documented specification gap was added:
+The [Week 04 milestone](https://github.com/Kelvingonzalezm/small-business-manager/milestone/1) is open and contains six issues: #5, #6, #7, #10, #11, and #14. During this verification, I associated the two existing P1 issues #10 and #11 with the existing milestone; I did not create or duplicate issues. The milestone currently shows six open issues and zero closed issues. The board also has Status and Priority fields, and all five P1 issues are assigned to Week 04.
 
-- [#5 — Implement user registration and login](https://github.com/Kelvingonzalezm/small-business-manager/issues/5)
-- [#6 — Implement product management](https://github.com/Kelvingonzalezm/small-business-manager/issues/6)
-- [#7 — Manage inventory and product prices](https://github.com/Kelvingonzalezm/small-business-manager/issues/7)
-- [#8 — Implement supplier management](https://github.com/Kelvingonzalezm/small-business-manager/issues/8)
-- [#9 — Create business dashboard](https://github.com/Kelvingonzalezm/small-business-manager/issues/9)
-- [#10 — Build product creation and listing](https://github.com/Kelvingonzalezm/small-business-manager/issues/10)
-- [#11 — Build product update and deletion](https://github.com/Kelvingonzalezm/small-business-manager/issues/11)
-- [#14 — Decide and document the database and data ownership model](https://github.com/Kelvingonzalezm/small-business-manager/issues/14)
+## 5. Data Model - PARTIAL
 
-I created the requested [Week 04 milestone](https://github.com/Kelvingonzalezm/small-business-manager/milestone/1) after confirming none existed. Issues #5, #6, and #7 are the P1 stories in the specification; the new #14 records the database decision that blocks persistence work. Those four issues are attached to the milestone, and no new task was assigned to a teammate. The team should decide whether #10 and #11 are child tasks or duplicates. I did not create a Project Board because I could not verify whether a Projects v2 board already exists.
+The repository specification describes the project's account, product, supplier, inventory, and dashboard scope. My [planning proposal](wdd430-w03-planning-proposal.md) outlines four candidate entities - User, Product, Supplier, and Inventory Record - with possible ownership, supplier, product, and inventory relationships. It records that the exact fields and tenancy rules require team confirmation. The repository does not record an approved or implemented database technology, so this proposal does not claim one.
 
-## 5. Data Model — PARTIAL
+## 6. Design Planning - PARTIAL
 
-The current [project specification](../specs/001-small-business-manager/spec.md) identifies four core concepts: User, Product, Supplier, and Inventory Record. I prepared a candidate model and relationships in [`wdd430-w03-planning-proposal.md`](wdd430-w03-planning-proposal.md). It is explicitly an individual proposal awaiting team approval. The draft does not assert a database choice: neither the specification nor the current application code records an approved or implemented database technology.
+I found no team-approved palette, typeface, spacing scale, component library, or responsive rules in the repository. The planning proposal suggests a navy, teal, off-white, and slate palette, readable sans-serif typography, a consistent navigation/content layout, and responsive forms, cards, and tables. These are individual proposals awaiting team approval, not established team decisions.
 
-## 6. Design Planning — PARTIAL
+## 7. W03 Team: Code Review Report - COMPLETE
 
-I found no approved palette, typography, spacing rules, layout conventions, responsive standards, or shared UI library in the repository. The planning proposal includes a possible palette and interface direction, clearly marked for team discussion rather than as an accepted team decision. The repository currently contains the initial Next.js starter page.
+I previously reviewed Kelvin Gonzalez's Week 02 Sacrament Meeting Planner [Pull Request #1](https://github.com/Kelvingonzalezm/sacrament-meetings/pull/1#pullrequestreview-5899521998). This is the existing review evidence; I did not repeat or replace it during this W03 project work.
 
-## 7. W03 Team: Code Review Report — COMPLETE
+## Verification evidence
 
-My code-review evidence is the review already submitted on Kelvin Gonzalez's Week 02 Sacrament Meeting Planner PR: [Pull Request #1 review](https://github.com/Kelvingonzalezm/sacrament-meetings/pull/1#pullrequestreview-5899521998). This is the previously completed review; I did not repeat or replace it during this project audit.
+- `npm install` completed; npm reported eight moderate advisories. I did not run an automatic dependency fix.
+- `npm run lint` passed.
+- `npx tsc --noEmit` passed.
+- `npm run build` passed; the current application is the Next.js starter page.
+- `npm run dev` had previously started successfully. In this review, the existing server reported that it was already running (PID 31448), and an HTTP request to `http://localhost:3000/` returned 200.
+- GitHub CLI authentication is active for `kennethduron` with `read:project`; the repository grants write access.
+- The public Projects v2 board contains eight real Issues. The five P1 items (#5, #6, #7, #10, #11) are associated with the Week 04 milestone.
+- PR #13 remains open as Draft; `main` was not changed.
+- `.env` is ignored by Git. No secrets were added to the submission documents.
 
-## Verification performed
+## Remaining evidence before submission
 
-- `npm install`: completed; 362 packages added. npm reported 8 moderate advisories. No automated dependency fix was applied.
-- `npm run lint`: passed.
-- `npx tsc --noEmit`: passed.
-- `npm run build`: passed; Next.js generated only `/` and `/_not-found`.
-- `npm run dev`: started and reported ready at `http://localhost:3000`; an actual browser-rendered screenshot is saved at [`docs/evidence/local-development.png`](evidence/local-development.png).
-- GitHub confirms that `kennethduron` has `write` permission on this repository.
-- Issue #14 records the unresolved database and data-ownership decision; no owner was assigned.
-- The Week 04 milestone exists and contains Issues #5, #6, #7, and #14.
-- `GET http://localhost:3000/`: HTTP 200.
-- The deployed homepage URL listed in the repository metadata returned HTTP 200, but it serves the Next.js starter. `/api/hello` returned HTTP 404. These are observations of the current deployment, not evidence of completed business features.
-- `.env` is ignored by Git. No project source files were changed; the only intentional source change in this branch is the planning proposal and this report draft.
-
-## Message for team confirmation (not sent)
-
-> Hi team, I reviewed the WDD 430 W03 requirements for Small Business Manager. The repository now has eight open issues, and the Week 04 milestone contains the P1 work plus the database decision. I could not verify the Projects v2 board URL. Could someone share the current board link and confirm whether those issues are on it? Please also confirm the synchronous meeting attendees and leader, the database choice, and whether the draft User/Product/Supplier/Inventory Record model and proposed visual direction are acceptable. Issues #6 and #10/#11 overlap in product scope; could we decide whether those should be parent/child tasks?
-
-## Evidence still needed before Canvas submission
-
-1. A screenshot that also shows the localhost address or VS Code terminal (the current real screenshot shows the app but not its browser chrome or terminal).
-2. The accessible GitHub Projects board URL, and confirmation that the eight repository issues are on that board.
-3. Team confirmation of the database, data model, design decisions, priorities, work ownership, and asynchronous check-in plan.
-4. Verified synchronous meeting attendees and leader, or instructor guidance on how to report if no synchronous meeting took place.
+1. Capture a genuine screenshot that visibly includes either the browser's `localhost:3000` address or the VS Code terminal running the development server.
+2. Confirm whether a synchronous team meeting occurred and, if it did, its actual attendees and leader. If there was no synchronous meeting, ask the instructor how to satisfy or report that criterion.
+3. Obtain team confirmation of the candidate data model, database choice, design direction, and work ownership. The current model and design are proposals only.
