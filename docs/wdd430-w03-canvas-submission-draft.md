@@ -23,9 +23,9 @@ I cloned the team repository into a separate local folder, installed its locked 
 
 Optional stronger capture: keep the development server running in the project terminal, open `http://localhost:3000` in a browser, and press **Win + Shift + S**. Capture the browser with the localhost address visible, or capture VS Code with the project and terminal showing the `npm run dev` ready message. Save the original PNG without editing it.
 
-## 4. GitHub Project Board — BLOCKED
+## 4. GitHub Project Board — PARTIAL
 
-No verified Project Board URL is available yet. The repository's classic Projects endpoint returned 404; GitHub CLI authentication is currently invalid, so I could not query Projects v2 or verify its visibility. The public Issues list contains seven open issues, below the assignment target of eight:
+No verified Project Board URL is available yet. The repository's classic Projects endpoint returned 404. GitHub CLI is authenticated as `kennethduron` with repository access, but lacks `read:project`, so I could not query Projects v2 or verify its visibility. The repository now has eight open, relevant issues after one documented specification gap was added:
 
 - [#5 — Implement user registration and login](https://github.com/Kelvingonzalezm/small-business-manager/issues/5)
 - [#6 — Implement product management](https://github.com/Kelvingonzalezm/small-business-manager/issues/6)
@@ -34,8 +34,9 @@ No verified Project Board URL is available yet. The repository's classic Project
 - [#9 — Create business dashboard](https://github.com/Kelvingonzalezm/small-business-manager/issues/9)
 - [#10 — Build product creation and listing](https://github.com/Kelvingonzalezm/small-business-manager/issues/10)
 - [#11 — Build product update and deletion](https://github.com/Kelvingonzalezm/small-business-manager/issues/11)
+- [#14 — Decide and document the database and data ownership model](https://github.com/Kelvingonzalezm/small-business-manager/issues/14)
 
-The public repository milestone list contains no milestones, so no issue is currently attached to a verified **Week 04** milestone. Issues #6, #10, and #11 overlap in product-management scope; the team should decide whether #10 and #11 are child tasks or duplicates before another issue is created. I did not create a board, issue, or milestone without confirming the existing Projects v2 board and team priority decisions.
+I created the requested [Week 04 milestone](https://github.com/Kelvingonzalezm/small-business-manager/milestone/1) after confirming none existed. Issues #5, #6, and #7 are the P1 stories in the specification; the new #14 records the database decision that blocks persistence work. Those four issues are attached to the milestone, and no new task was assigned to a teammate. The team should decide whether #10 and #11 are child tasks or duplicates. I did not create a Project Board because I could not verify whether a Projects v2 board already exists.
 
 ## 5. Data Model — PARTIAL
 
@@ -56,17 +57,20 @@ My code-review evidence is the review already submitted on Kelvin Gonzalez's Wee
 - `npx tsc --noEmit`: passed.
 - `npm run build`: passed; Next.js generated only `/` and `/_not-found`.
 - `npm run dev`: started and reported ready at `http://localhost:3000`; an actual browser-rendered screenshot is saved at [`docs/evidence/local-development.png`](evidence/local-development.png).
+- GitHub confirms that `kennethduron` has `write` permission on this repository.
+- Issue #14 records the unresolved database and data-ownership decision; no owner was assigned.
+- The Week 04 milestone exists and contains Issues #5, #6, #7, and #14.
 - `GET http://localhost:3000/`: HTTP 200.
 - The deployed homepage URL listed in the repository metadata returned HTTP 200, but it serves the Next.js starter. `/api/hello` returned HTTP 404. These are observations of the current deployment, not evidence of completed business features.
 - `.env` is ignored by Git. No project source files were changed; the only intentional source change in this branch is the planning proposal and this report draft.
 
 ## Message for team confirmation (not sent)
 
-> Hi team, I reviewed the WDD 430 W03 requirements for Small Business Manager. The repository currently has seven open issues and no Week 04 milestone visible through the public repository API, and I could not verify the Projects v2 board URL. Could someone share the current board link and confirm whether a board already exists? Please also confirm the synchronous meeting attendees and leader, the Week 04 priority issues, the database choice, and whether the draft User/Product/Supplier/Inventory Record model and proposed visual direction are acceptable. Issues #6 and #10/#11 overlap in product scope; could we decide whether those should be parent/child tasks before adding more work?
+> Hi team, I reviewed the WDD 430 W03 requirements for Small Business Manager. The repository now has eight open issues, and the Week 04 milestone contains the P1 work plus the database decision. I could not verify the Projects v2 board URL. Could someone share the current board link and confirm whether those issues are on it? Please also confirm the synchronous meeting attendees and leader, the database choice, and whether the draft User/Product/Supplier/Inventory Record model and proposed visual direction are acceptable. Issues #6 and #10/#11 overlap in product scope; could we decide whether those should be parent/child tasks?
 
 ## Evidence still needed before Canvas submission
 
-1. A genuine screenshot of the local project running.
-2. The accessible GitHub Projects board URL, with at least eight relevant issues and the highest-priority issues linked to a Week 04 milestone.
+1. A screenshot that also shows the localhost address or VS Code terminal (the current real screenshot shows the app but not its browser chrome or terminal).
+2. The accessible GitHub Projects board URL, and confirmation that the eight repository issues are on that board.
 3. Team confirmation of the database, data model, design decisions, priorities, work ownership, and asynchronous check-in plan.
 4. Verified synchronous meeting attendees and leader, or instructor guidance on how to report if no synchronous meeting took place.
