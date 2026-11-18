@@ -4,7 +4,10 @@ import { redirect } from 'next/navigation';
 import MetricCard from '@/app/components/dashboard/MetricCard';
 import { getCurrentUser, deleteSession } from '@/app/lib/auth';
 import { getDashboardMetrics } from '@/app/lib/dashboard';
-import { formatMetricNumber } from '@/app/lib/dashboard-metrics';
+import {
+  formatInventoryValue,
+  formatMetricNumber,
+} from '@/app/lib/dashboard-metrics';
 
 export default async function Home() {
   const user = await getCurrentUser();
@@ -23,6 +26,7 @@ export default async function Home() {
   }
 
   const hasBusinessData = metrics.productCount > 0 || metrics.supplierCount > 0;
+  const inventoryValue = formatInventoryValue(metrics.inventoryValue);
 
   return (
     <div className="min-h-screen bg-[#F7F8FA] text-[#344054]">
@@ -157,7 +161,7 @@ export default async function Home() {
             />
             <MetricCard
               label="Inventory value (price x units)"
-              value={formatMetricNumber(metrics.inventoryValue)}
+              value={inventoryValue}
               description="Stored price totals; no currency conversion"
               href="#inventory"
             />
@@ -214,9 +218,8 @@ export default async function Home() {
             </h2>
             <p className="mt-2 text-sm leading-6 text-slate-600">
               {formatMetricNumber(metrics.totalUnits)} total units are recorded.
-              Inventory value is{' '}
-              {formatMetricNumber(metrics.inventoryValue)} in the stored price
-              units; no currency conversion is applied.
+              Inventory value is {inventoryValue} in the stored price units; no
+              currency conversion is applied.
             </p>
           </section>
 
