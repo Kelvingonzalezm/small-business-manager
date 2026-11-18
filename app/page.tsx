@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import MetricCard from '@/app/components/dashboard/MetricCard';
@@ -49,6 +50,12 @@ export default async function Home() {
               >
                 Overview
               </a>
+              <Link
+                className="text-sm font-medium text-slate-700 hover:text-teal-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-800"
+                href="/products"
+              >
+                Products
+              </Link>
               <a
                 className="text-sm font-medium text-slate-700 hover:text-teal-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-800"
                 href="#inventory"
@@ -140,7 +147,7 @@ export default async function Home() {
               label="Products"
               value={formatMetricNumber(metrics.productCount)}
               description="Items in your catalog"
-              href="#products"
+              href="/products"
             />
             <MetricCard
               label="Inventory units"
@@ -180,10 +187,15 @@ export default async function Home() {
             </h2>
             <p className="mt-2 text-sm leading-6 text-slate-600">
               You have {formatMetricNumber(metrics.productCount)} saved{' '}
-              {metrics.productCount === 1 ? 'product' : 'products'}. Product
-              creation and management are tracked separately on the team project
-              board.
+              {metrics.productCount === 1 ? 'product' : 'products'}. Manage
+              your catalog from the product management page.
             </p>
+            <Link
+              href="/products"
+              className="mt-4 inline-flex rounded-lg bg-[#16324F] px-4 py-2 text-sm font-semibold text-white hover:bg-[#214768] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-800"
+            >
+              Manage products
+            </Link>
           </section>
 
           <section
