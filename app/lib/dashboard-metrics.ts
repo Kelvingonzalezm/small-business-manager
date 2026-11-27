@@ -1,7 +1,8 @@
+
 export interface DashboardMetrics {
   productCount: number;
   totalUnits: number;
-  inventoryValue: number;
+  inventoryValue: string;
   supplierCount: number;
 }
 
@@ -29,21 +30,15 @@ function parseCount(value: unknown, field: string): number {
   return count;
 }
 
-function parseValue(value: unknown): number {
+function parseValue(value: unknown): string {
   if (
-    (typeof value !== 'number' && typeof value !== 'string') ||
-    (typeof value === 'string' && !/^\d+(?:\.\d+)?$/.test(value))
+    typeof value !== 'string' ||
+    !/^\d+(?:\.\d{1,2})?$/.test(value)
   ) {
     throw new Error('Invalid dashboard metric: inventory value');
   }
 
-  const amount = Number(value);
-
-  if (!Number.isFinite(amount) || amount < 0) {
-    throw new Error('Invalid dashboard metric: inventory value');
-  }
-
-  return amount;
+  return value;
 }
 
 export function normalizeDashboardRow(
@@ -66,4 +61,14 @@ export function formatMetricNumber(value: number): string {
     maximumFractionDigits: 2,
     minimumFractionDigits: 0,
   }).format(value);
+}
+
+export function formatInventoryValue(value: string): string {
+  const [integerPart, decimalPart = ''] = value.split('.');
+  const formattedInteger = BigInt(integerPart).toLocaleString('en-US');
+  const normalizedDecimal = decimalPart.replace(/0+$/, '');
+
+  return normalizedDecimal
+    ? `${formattedInteger}.${normalizedDecimal}`
+    : formattedInteger;
 }
