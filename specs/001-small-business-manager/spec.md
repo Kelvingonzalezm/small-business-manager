@@ -110,7 +110,6 @@ Business owners need a simple dashboard that summarizes the current state of pro
 - **FR-013**: System MUST validate required fields and reject incomplete or invalid data before saving business records.
 - **FR-014**: System MUST protect user data by requiring authenticated access to sensitive business information.
 
-
 ### Key Entities
 
 - **User**: Represents a business owner who has an account and manages their own business data.
@@ -142,6 +141,29 @@ Business owners need a simple dashboard that summarizes the current state of pro
 
 - **Inventory Record**: For the initial version, the current stock quantity is stored directly in the Product entity. A separate inventory history table is not included.
 
+### Database and Data Ownership
+
+- **Database technology**: The project uses PostgreSQL hosted on Neon. The team shares the same Neon database project for development and deployment.
+- **Application data access**: The application connects to PostgreSQL through the `@neondatabase/serverless` package, using the `neon()` client and the `DATABASE_URL` environment variable.
+- **Database scripts**: Schema and database maintenance scripts use the `pg` package and the same `DATABASE_URL` connection variable.
+
+#### Data Ownership
+
+- Each registered user owns their own product and supplier records.
+- The `products` and `suppliers` tables contain a required `user_id` foreign key referencing `users.id`.
+- Application queries must restrict access to records belonging to the authenticated user.
+- A product can optionally reference a supplier. The database enforces that both records belong to the same user.
+- Deleting a user cascades to their products and suppliers. Deleting a supplier sets the associated product's `supplier_id` to `NULL`.
+- The initial data model does not include a separate Business entity or an inventory history table.
+
+#### Environment Configuration and Local Setup
+
+- `DATABASE_URL` is required to connect the application and database scripts to the shared PostgreSQL database.
+- Developers must create a `.env.local` file in the project root and configure `DATABASE_URL` with the connection string provided through the team's approved Neon project access.
+- Database credentials and environment files must never be committed to the repository. The `.gitignore` file excludes `.env*` files.
+- To install dependencies, run `npm install`.
+- To start the local development server on port 3001, run `npm run dev -- -p 3001`.
+- The deployed application must have `DATABASE_URL` configured in its Vercel environment settings.
 
 ## Success Criteria *(mandatory)*
 
